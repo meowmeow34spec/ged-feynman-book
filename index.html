@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="hanji">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="고졸 검정고시 필수 어휘와 뿌리 한자를 리처드 파인만 학습법으로 풀어낸 나만의 양장본 개인 과외 서재 & 필사 노트">
+  <title>고졸 검정고시 파인만 어휘·한자 서재 — 나만의 양장본 개념 노트</title>
+
+  <!-- Cinnabar Seal SVG Favicon (prevents 404 console errors) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='8' fill='%239E3329'/%3E%3Crect x='9' y='9' width='46' height='46' rx='4' fill='none' stroke='%23FBF8F1' stroke-width='2.5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='serif' font-size='30' font-weight='700' fill='%23FBF8F1'%3E%E6%9B%B8%3C/text%3E%3C/svg%3E">
+
+  <!-- Typography: Gowun Batang, Noto Serif KR, Noto Sans KR & Pretendard -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <!-- Early Paper & Lamp Theme Restoration -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ged_feynman_theme');
+        if (saved === 'hanji' || saved === 'sepia' || saved === 'midnight') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/book-theme.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a href="#bookViewport" class="skip-link">본문 책장으로 바로가기</a>
+
+  <!-- Top Personal Study Desk Bar -->
+  <header class="desk-bar" role="banner">
+    <div class="desk-bar__inner">
+      <div class="desk-brand">
+        <button type="button" class="desk-brand__home" id="btnHomeBrand" title="표지 및 차례로 이동">
+          <span class="seal-emblem" aria-hidden="true">書齋</span>
+          <span class="desk-brand__titles">
+            <strong class="desk-brand__title">파인만 어휘·한자 서재</strong>
+            <span class="desk-brand__sub">고졸 검정고시 개인 양장본 필사 노트</span>
+          </span>
+        </button>
+
+        <button type="button" class="resume-pill" id="btnTopResume" hidden title="마지막으로 읽던 책장 이어 읽기">
+          <span class="resume-pill__ribbon" aria-hidden="true"></span>
+          <span class="resume-pill__text" id="topResumeLabel">이어 읽기</span>
+        </button>
+      </div>
+
+      <!-- Global Choseong / Word / Hanja / Meaning Search -->
+      <div class="desk-search" role="search">
+        <label for="globalSearchInput" class="sr-only">단어, 한자, 뜻, 초성 통합 검색</label>
+        <div class="desk-search__box">
+          <svg class="desk-search__icon" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+            <circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M13 13l4.2 4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          <input
+            type="search"
+            id="globalSearchInput"
+            class="desk-search__input"
+            placeholder="단어 · 한자(觀·歸) · 뜻 · 초성(ㄱㄴ) 통합 검색"
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <kbd class="desk-search__kbd" id="searchKbdHint" aria-hidden="true">/</kbd>
+          <button type="button" class="desk-search__clear" id="btnClearGlobalSearch" hidden aria-label="검색어 지우기">×</button>
+        </div>
+        <div class="search-popover" id="globalSearchPopover" role="listbox" aria-label="통합 검색 결과" hidden></div>
+      </div>
+
+      <!-- Study Controls: Feynman Paper Slip Mode & 3 Paper/Lamp Themes -->
+      <div class="desk-controls">
+        <button
+          type="button"
+          class="slip-mode-toggle"
+          id="btnGlobalSlipToggle"
+          aria-pressed="false"
+          title="오른쪽 설명 페이지에 한지 가림막을 덮어 먼저 내 말로 설명해보는 파인만 백지 복습 모드"
+        >
+          <span class="slip-mode-toggle__dot" aria-hidden="true"></span>
+          <span class="slip-mode-toggle__label">종이 가림막</span>
+          <span class="slip-mode-toggle__state" id="globalSlipStateText">꺼짐</span>
+        </button>
+
+        <div class="theme-switcher" role="group" aria-label="종이 질감 및 독서 조명 선택">
+          <button type="button" class="theme-btn is-active" data-theme-choice="hanji" aria-pressed="true" title="한지 주간 — 따뜻한 미색 한지와 먹색 잉크">
+            <span class="theme-swatch theme-swatch--hanji" aria-hidden="true"></span>
+            <span class="theme-btn__text">한지</span>
+          </button>
+          <button type="button" class="theme-btn" data-theme-choice="sepia" aria-pressed="false" title="고서재 세피아 — 눈이 편안한 차분한 고서 양피지">
+            <span class="theme-swatch theme-swatch--sepia" aria-hidden="true"></span>
+            <span class="theme-btn__text">세피아</span>
+          </button>
+          <button type="button" class="theme-btn" data-theme-choice="midnight" aria-pressed="false" title="심야 스탠드 — 밤공부에 눈부심 없는 따뜻한 앰버 다크">
+            <span class="theme-swatch theme-swatch--midnight" aria-hidden="true"></span>
+            <span class="theme-btn__text">심야</span>
+          </button>
+        </div>
+
+        <button type="button" class="help-btn" id="btnShortcutHelp" aria-label="키보드 단축키 안내" title="키보드 단축키 안내 (?)">
+          <span aria-hidden="true">?</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Fore-Edge Ribbon Bar -->
+    <nav class="mobile-index-bar" id="mobileIndexTabs" aria-label="서재 장별 색인 이동"></nav>
+  </header>
+
+  <!-- Hardcover Book Stage on Wooden Study Desk -->
+  <main class="desk-stage" id="deskStage">
+    <div class="book-shell" id="bookShell">
+      <!-- Physical Cloth Hardcover Frame -->
+      <div class="hardcover-frame">
+        <!-- Left Stacked Paper Edges -->
+        <div class="page-stack page-stack--left" aria-hidden="true"></div>
+
+        <!-- Physical Red Silk Bookmark Ribbon hanging from Top Spine -->
+        <button
+          type="button"
+          class="silk-ribbon"
+          id="physicalRibbon"
+          title="마지막으로 읽던 책장 이어 읽기 / 현재 페이지 책갈피"
+          aria-label="빨간 책갈피 끈"
+        >
+          <span class="silk-ribbon__tail"></span>
+          <span class="silk-ribbon__tip" id="silkRibbonLabel">책갈피</span>
+        </button>
+
+        <!-- Dynamic Book Interior Pages -->
+        <div class="book-interior" id="bookViewport" tabindex="-1">
+          <!-- Initial Graceful Loading Endpaper -->
+          <div class="book-loading">
+            <p class="book-loading__seal">書齋 開卷</p>
+            <p class="book-loading__text">서재의 양장본 책장을 펼치는 중입니다…</p>
+          </div>
+        </div>
+
+        <!-- Right Stacked Paper Edges -->
+        <div class="page-stack page-stack--right" aria-hidden="true"></div>
+      </div>
+
+      <!-- Stepped Fore-Edge Index Tabs along Right Outer Edge (Desktop) -->
+      <nav class="fore-edge-tabs" id="foreEdgeTabs" aria-label="책 옆면 견출지 색인 탭"></nav>
+    </div>
+
+    <!-- Quiet Colophon Footer on the Study Desk -->
+    <footer class="desk-colophon">
+      <p>
+        <span>고졸 검정고시 파인만 어휘·한자 서재</span>
+        <span class="colophon-sep" aria-hidden="true">·</span>
+        <span>단축키: <kbd>←</kbd><kbd>→</kbd> 책장 넘기기 · <kbd>Space</kbd> 파인만 가림막 · <kbd>/</kbd> 검색 · <kbd>B</kbd> 책갈피</span>
+      </p>
+    </footer>
+  </main>
+
+  <!-- Hanja Glyph & Related Concept Cross-Reference Drawer -->
+  <div class="drawer-backdrop" id="hanjaDrawerBackdrop" hidden></div>
+  <aside
+    class="hanja-drawer"
+    id="hanjaDrawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="hanjaDrawerTitle"
+    hidden
+  >
+    <div class="hanja-drawer__header">
+      <div>
+        <span class="hanja-drawer__eyebrow" id="hanjaDrawerEyebrow">한자 · 개념 연결 돋보기</span>
+        <h2 class="hanja-drawer__title" id="hanjaDrawerTitle">한자 연결 사전</h2>
+      </div>
+      <button type="button" class="drawer-close-btn" id="btnCloseHanjaDrawer" aria-label="연결 돋보기 닫기">✕</button>
+    </div>
+    <div class="hanja-drawer__body" id="hanjaDrawerBody"></div>
+  </aside>
+
+  <!-- Keyboard Shortcuts Guide Modal -->
+  <div class="modal-backdrop" id="shortcutModalBackdrop" hidden></div>
+  <div
+    class="shortcut-modal"
+    id="shortcutModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="shortcutModalTitle"
+    hidden
+  >
+    <div class="shortcut-modal__header">
+      <h2 class="shortcut-modal__title" id="shortcutModalTitle">서재 키보드 단축키 안내</h2>
+      <button type="button" class="drawer-close-btn" id="btnCloseShortcutModal" aria-label="단축키 안내 닫기">✕</button>
+    </div>
+    <div class="shortcut-modal__body">
+      <p class="shortcut-modal__intro">마우스 없이 책장을 스르륵 넘기며 혼잣말로 파인만 복습을 할 수 있습니다.</p>
+      <dl class="shortcut-list">
+        <div class="shortcut-item">
+          <dt><kbd>←</kbd> / <kbd>→</kbd></dt>
+          <dd>이전 단어 / 다음 단어 책장 넘기기 (펼침북 모드)</dd>
+        </div>
+        <div class="shortcut-item">
+          <dt><kbd>Space</kbd></dt>
+          <dd>오른쪽 파인만 종이 가림막(또는 셀프 점검 정답) 열기 · 닫기</dd>
+        </div>
+        <div class="shortcut-item">
+          <dt><kbd>/</kbd></dt>
+          <dd>어디서든 즉시 통합 검색창으로 포커스 이동</dd>
+        </div>
+        <div class="shortcut-item">
+          <dt><kbd>B</kbd></dt>
+          <dd>현재 펼친 단어에 빨간 책갈피 꽂기 · 빼기</dd>
+        </div>
+        <div class="shortcut-item">
+          <dt><kbd>1</kbd> · <kbd>2</kbd> · <kbd>3</kbd></dt>
+          <dd>이해도 인주 도장 찍기 (1: 처음 봄, 2: 익숙해짐, 3: 파인만 통달 💮)</dd>
+        </div>
+        <div class="shortcut-item">
+          <dt><kbd>Esc</kbd></dt>
+          <dd>열려 있는 한자 돋보기 · 검색 목록 · 안내창 닫기</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- Hidden File Input for JSON Study Record Restore -->
+  <input type="file" id="backupFileInput" accept="application/json,.json" hidden>
+
+  <!-- Editorial Ink Toast Notification -->
+  <div class="ink-toast" id="inkToast" role="status" aria-live="polite" hidden></div>
+
+  <!-- Data & Application Scripts (strictly defer order for file:// & GitHub Pages compatibility) -->
+  <script src="data/ch1-korean-reading.js" defer></script>
+  <script src="data/ch2-korean-lit-idioms.js" defer></script>
+  <script src="data/ch3-social-history.js" defer></script>
+  <script src="data/ch4-history-science.js" defer></script>
+  <script src="data/hanja-roots.js" defer></script>
+  <script src="data/confusables-and-drills.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

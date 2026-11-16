@@ -1,0 +1,1158 @@
+/* ==========================================================================
+   고졸 검정고시 파인만 어휘·한자 서재 — Book Theme & Tactile Typography
+   정성스럽게 제본된 양장본 개인 과외 서재 & 파인만 필사 노트 스타일시트
+   ========================================================================== */
+
+:root,
+[data-theme="hanji"] {
+  /* Typography Stacks */
+  --font-serif: 'Gowun Batang', 'Noto Serif KR', 'Batang', Georgia, serif;
+  --font-serif-strong: 'Noto Serif KR', 'Gowun Batang', 'Batang', serif;
+  --font-hanja: 'Noto Serif KR', 'Gowun Batang', 'Batang', 'AppleMyungjo', 'Hiragino Mincho ProN', 'Yu Mincho', 'PMingLiU', 'SimSun', serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+
+  /* Study Desk & Hardcover Cloth (Warm Hanji Cream — 한지 주간) */
+  --desk-bg: #e4ddd0;
+  --desk-bg-accent: #d8cfc0;
+  --desk-bar-bg: rgba(247, 243, 234, 0.92);
+  --desk-bar-border: #d2c8b6;
+
+  --cloth-bg: #46372e;
+  --cloth-bg-inner: #362922;
+  --cloth-border: #5c493e;
+  --book-shadow: 0 24px 56px rgba(42, 31, 22, 0.22), 0 6px 16px rgba(42, 31, 22, 0.12);
+
+  --page-stack-1: #efe9dc;
+  --page-stack-2: #ded5c3;
+  --page-stack-line: #c9beaa;
+
+  /* Mulberry Paper Surfaces */
+  --paper-bg: #fbf8f1;
+  --paper-alt: #f5efe2;
+  --paper-elevated: #fffdf8;
+  --paper-subtle: #efe8d8;
+  --paper-slip: rgba(246, 239, 226, 0.94);
+  --paper-slip-solid: #f3ebdc;
+  --paper-slip-border: #cbbca4;
+
+  /* Pine Soot Ink Hierarchy */
+  --ink-primary: #221e1b;
+  --ink-secondary: #4e463e;
+  --ink-muted: #7a7065;
+  --ink-faint: #a19688;
+
+  /* Rules, Margins & Lined Paper */
+  --rule-line: #e2d9c8;
+  --rule-strong: #c9bda8;
+  --notebook-line: rgba(158, 138, 112, 0.22);
+  --spine-shadow-left: linear-gradient(90deg, rgba(45, 34, 24, 0) 0%, rgba(45, 34, 24, 0.03) 72%, rgba(45, 34, 24, 0.13) 100%);
+  --spine-shadow-right: linear-gradient(270deg, rgba(45, 34, 24, 0) 0%, rgba(45, 34, 24, 0.03) 72%, rgba(45, 34, 24, 0.13) 100%);
+  --spine-crease: #cbbda6;
+
+  /* Traditional Pigments & Cinnabar Ink Seal (인주빛) */
+  --cinnabar: #9e3329;
+  --cinnabar-hover: #842820;
+  --cinnabar-soft: #faeeeb;
+  --cinnabar-border: #dfa8a1;
+  --stamp-red: #b6291f;
+
+  --pine-green: #2f5d50;
+  --pine-soft: #eaf2ef;
+  --pine-border: #a5c4ba;
+
+  --amber-gold: #8c5e1a;
+  --amber-soft: #faf3e3;
+  --amber-border: #dfc693;
+
+  --indigo-ink: #354f6b;
+  --indigo-soft: #ecf1f6;
+  --indigo-border: #adc0d4;
+
+  /* Chapter Accents (Theme-harmonized) */
+  --ch1-color: #8b3a2b;
+  --ch2-color: #5b4636;
+  --ch3-color: #2f5d50;
+  --ch4-color: #354f6b;
+
+  --focus-ring: 0 0 0 3px rgba(158, 51, 41, 0.28);
+  --grain-opacity: 0.03;
+}
+
+/* ==========================================================================
+   Theme 2: Vintage Sepia (고서재 세피아 — 차분한 양피지 고서 톤)
+   ========================================================================== */
+[data-theme="sepia"] {
+  --desk-bg: #cbbda6;
+  --desk-bg-accent: #bcac93;
+  --desk-bar-bg: rgba(238, 227, 207, 0.94);
+  --desk-bar-border: #bfb097;
+
+  --cloth-bg: #3b2a1f;
+  --cloth-bg-inner: #2b1e16;
+  --cloth-border: #553e2f;
+  --book-shadow: 0 24px 56px rgba(38, 26, 16, 0.28), 0 6px 16px rgba(38, 26, 16, 0.16);
+
+  --page-stack-1: #e4d5bc;
+  --page-stack-2: #d2c0a3;
+  --page-stack-line: #baa586;
+
+  --paper-bg: #f3e8d4;
+  --paper-alt: #eadbc2;
+  --paper-elevated: #f8efdf;
+  --paper-subtle: #e2d1b5;
+  --paper-slip: rgba(235, 220, 194, 0.95);
+  --paper-slip-solid: #e8d8bc;
+  --paper-slip-border: #bba686;
+
+  --ink-primary: #2a2018;
+  --ink-secondary: #544335;
+  --ink-muted: #7c6855;
+  --ink-faint: #9e8a74;
+
+  --rule-line: #d6c5a9;
+  --rule-strong: #bca686;
+  --notebook-line: rgba(132, 106, 76, 0.24);
+  --spine-shadow-left: linear-gradient(90deg, rgba(42, 28, 16, 0) 0%, rgba(42, 28, 16, 0.04) 70%, rgba(42, 28, 16, 0.16) 100%);
+  --spine-shadow-right: linear-gradient(270deg, rgba(42, 28, 16, 0) 0%, rgba(42, 28, 16, 0.04) 70%, rgba(42, 28, 16, 0.16) 100%);
+  --spine-crease: #b8a282;
+
+  --cinnabar: #8f2d22;
+  --cinnabar-hover: #752219;
+  --cinnabar-soft: #f2dfd8;
+  --cinnabar-border: #d1998e;
+  --stamp-red: #a6261b;
+
+  --pine-green: #2a5346;
+  --pine-soft: #e1ebe4;
+  --pine-border: #97b8ab;
+
+  --amber-gold: #7d5112;
+  --amber-soft: #f2e6cb;
+  --amber-border: #d1b47c;
+
+  --indigo-ink: #2f4761;
+  --indigo-soft: #e1e6ec;
+  --indigo-border: #9fb2c7;
+
+  --ch1-color: #873425;
+  --ch2-color: #573f2e;
+  --ch3-color: #295245;
+  --ch4-color: #2e4660;
+
+  --grain-opacity: 0.04;
+}
+
+/* ==========================================================================
+   Theme 3: Midnight Study Lamp (심야 스탠드 — 눈부심 없는 따뜻한 앰버 다크)
+   ========================================================================== */
+[data-theme="midnight"] {
+  --desk-bg: #12100e;
+  --desk-bg-accent: #181512;
+  --desk-bar-bg: rgba(27, 24, 21, 0.94);
+  --desk-bar-border: #332d27;
+
+  --cloth-bg: #26211c;
+  --cloth-bg-inner: #191613;
+  --cloth-border: #3a322b;
+  --book-shadow: 0 28px 64px rgba(0, 0, 0, 0.62), 0 6px 20px rgba(0, 0, 0, 0.45);
+
+  --page-stack-1: #29241f;
+  --page-stack-2: #211d19;
+  --page-stack-line: #38312a;
+
+  --paper-bg: #1e1b18;
+  --paper-alt: #25211d;
+  --paper-elevated: #29241f;
+  --paper-subtle: #2f2923;
+  --paper-slip: rgba(38, 33, 28, 0.96);
+  --paper-slip-solid: #28231e;
+  --paper-slip-border: #4a4035;
+
+  --ink-primary: #ece3d5;
+  --ink-secondary: #bfb3a2;
+  --ink-muted: #8e8273;
+  --ink-faint: #695f53;
+
+  --rule-line: #332d27;
+  --rule-strong: #473e35;
+  --notebook-line: rgba(212, 185, 145, 0.13);
+  --spine-shadow-left: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.14) 72%, rgba(0, 0, 0, 0.42) 100%);
+  --spine-shadow-right: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.14) 72%, rgba(0, 0, 0, 0.42) 100%);
+  --spine-crease: #12100d;
+
+  --cinnabar: #df6d5d;
+  --cinnabar-hover: #eb8071;
+  --cinnabar-soft: rgba(223, 109, 93, 0.14);
+  --cinnabar-border: rgba(223, 109, 93, 0.4);
+  --stamp-red: #e05a48;
+
+  --pine-green: #6fb39e;
+  --pine-soft: rgba(111, 179, 158, 0.13);
+  --pine-border: rgba(111, 179, 158, 0.36);
+
+  --amber-gold: #e4af5b;
+  --amber-soft: rgba(228, 175, 91, 0.13);
+  --amber-border: rgba(228, 175, 91, 0.36);
+
+  --indigo-ink: #89afd6;
+  --indigo-soft: rgba(137, 175, 214, 0.13);
+  --indigo-border: rgba(137, 175, 214, 0.36);
+
+  --ch1-color: #df7463;
+  --ch2-color: #cca683;
+  --ch3-color: #6fb39e;
+  --ch4-color: #89afd6;
+
+  --focus-ring: 0 0 0 3px rgba(223, 109, 93, 0.35);
+  --grain-opacity: 0.02;
+}
+
+/* ==========================================================================
+   Reset & Global Editorial Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--desk-bg);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 248, 232, 0.18), transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(0, 0, 0, 0.008) 3px,
+      rgba(0, 0, 0, 0.008) 6px
+    );
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  transition: background-color 0.28s ease, color 0.25s ease;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Hanja Dedicated Utility */
+.hanja-glyph {
+  font-family: var(--font-hanja);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 1000;
+  padding: 8px 14px;
+  background: var(--cinnabar);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-secondary);
+  background: var(--paper-alt);
+  border: 1px solid var(--rule-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Top Study Desk Bar (Header)
+   ========================================================================== */
+.desk-bar {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: var(--desk-bar-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--desk-bar-border);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.desk-bar__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 9px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.desk-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.desk-brand__home {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 4px 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  text-align: left;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.desk-brand__home:hover {
+  background: var(--paper-subtle);
+  border-color: var(--rule-line);
+}
+
+.seal-emblem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: var(--stamp-red);
+  color: #fbf8f1;
+  font-family: var(--font-hanja);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  border-radius: 5px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 1px var(--stamp-red), 0 2px 5px rgba(158, 51, 41, 0.25);
+}
+
+.desk-brand__titles {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.22;
+}
+
+.desk-brand__title {
+  font-family: var(--font-serif-strong);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  letter-spacing: -0.02em;
+}
+
+.desk-brand__sub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+/* Quick Resume Ribbon Pill */
+.resume-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  background: var(--cinnabar-soft);
+  border: 1px solid var(--cinnabar-border);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--cinnabar);
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 0.16s ease, background-color 0.16s ease;
+}
+
+.resume-pill:hover {
+  transform: translateY(-1px);
+}
+
+.resume-pill__ribbon {
+  width: 8px;
+  height: 12px;
+  flex-shrink: 0;
+  background: var(--stamp-red);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+}
+
+.resume-pill__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Global Search Input */
+.desk-search {
+  position: relative;
+  flex: 1 1 280px;
+  max-width: 430px;
+  min-width: 200px;
+}
+
+.desk-search__box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.desk-search__box:focus-within {
+  border-color: var(--cinnabar);
+  box-shadow: var(--focus-ring);
+}
+
+.desk-search__icon {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.desk-search__input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--ink-primary);
+}
+
+.desk-search__input::placeholder {
+  color: var(--ink-faint);
+}
+
+.desk-search__input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.desk-search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.desk-search__kbd {
+  flex-shrink: 0;
+}
+
+.desk-search__clear {
+  border: 0;
+  background: var(--paper-subtle);
+  color: var(--ink-secondary);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Desk Right Controls */
+.desk-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.slip-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  transition: all 0.18s ease;
+}
+
+.slip-mode-toggle:hover {
+  border-color: var(--cinnabar);
+  color: var(--ink-primary);
+}
+
+.slip-mode-toggle__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.slip-mode-toggle__state {
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: var(--paper-subtle);
+  color: var(--ink-muted);
+}
+
+.slip-mode-toggle[aria-pressed="true"] {
+  background: var(--cinnabar-soft);
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.slip-mode-toggle[aria-pressed="true"] .slip-mode-toggle__dot {
+  background: var(--cinnabar);
+  box-shadow: 0 0 0 3px rgba(158, 51, 41, 0.2);
+}
+
+.slip-mode-toggle[aria-pressed="true"] .slip-mode-toggle__state {
+  background: var(--cinnabar);
+  color: #fff;
+}
+
+/* 3 Paper & Lighting Theme Switcher */
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background: var(--paper-subtle);
+  border: 1px solid var(--rule-line);
+  border-radius: 999px;
+  gap: 2px;
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.theme-btn:hover {
+  color: var(--ink-primary);
+}
+
+.theme-btn.is-active {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.theme-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  flex-shrink: 0;
+}
+
+.theme-swatch--hanji {
+  background: #fbf8f1;
+}
+
+.theme-swatch--sepia {
+  background: #e6d4b5;
+}
+
+.theme-swatch--midnight {
+  background: #231e19;
+  border-color: #d99b4e;
+}
+
+.help-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-elevated);
+  font-family: var(--font-serif-strong);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.help-btn:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+/* ==========================================================================
+   Hardcover Book Stage, Cloth Binding, Paper Edges & Spine
+   ========================================================================== */
+.desk-stage {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 22px 20px 36px;
+}
+
+.book-shell {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hardcover-frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 1260px;
+  background: linear-gradient(145deg, var(--cloth-bg), var(--cloth-bg-inner));
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--cloth-border);
+  box-shadow: var(--book-shadow);
+  display: flex;
+  align-items: stretch;
+}
+
+/* Stacked Physical Paper Edges on Left & Right */
+.page-stack {
+  width: 9px;
+  flex-shrink: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--page-stack-1) 0px,
+    var(--page-stack-1) 2px,
+    var(--page-stack-line) 2px,
+    var(--page-stack-2) 3px
+  );
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.page-stack--left {
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.08);
+}
+
+.page-stack--right {
+  border-radius: 0 5px 5px 0;
+  box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Physical Red Silk Bookmark Ribbon */
+.silk-ribbon {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.silk-ribbon:hover {
+  transform: translateX(-50%) translateY(4px);
+}
+
+.silk-ribbon__tail {
+  display: block;
+  width: 24px;
+  height: 46px;
+  background: linear-gradient(180deg, #7d1b14 0%, #b82920 35%, #9e2219 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  transition: height 0.24s ease, background 0.24s ease;
+}
+
+.silk-ribbon.is-pinned .silk-ribbon__tail {
+  height: 58px;
+  background: linear-gradient(180deg, #941e16 0%, #d43227 42%, #ab231a 100%);
+}
+
+.silk-ribbon__tip {
+  margin-top: 2px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(34, 26, 22, 0.88);
+  color: #fbf8f1;
+  font-family: var(--font-sans);
+  font-size: 0.67rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-3px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.silk-ribbon:hover .silk-ribbon__tip,
+.silk-ribbon:focus-visible .silk-ribbon__tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Book Paper Interior */
+.book-interior {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 750px;
+  background-color: var(--paper-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  border-top: 1px solid var(--rule-line);
+  border-bottom: 1px solid var(--rule-line);
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+}
+
+.book-interior:focus {
+  outline: none;
+}
+
+/* ==========================================================================
+   2-Page Book Spread Architecture (양면 펼침북 & 제본선)
+   ========================================================================== */
+.book-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr);
+  min-height: 750px;
+  animation: pageTurnSoft 0.24s ease-out;
+}
+
+@keyframes pageTurnSoft {
+  from {
+    opacity: 0.72;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-page {
+  position: relative;
+  padding: 34px 38px 30px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.book-page--left {
+  background-image: var(--spine-shadow-left);
+}
+
+.book-page--right {
+  background-image: var(--spine-shadow-right);
+}
+
+/* Central Binding Gutter & Stitched Threads */
+.book-spine {
+  position: relative;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(255, 255, 255, 0.06) 36%,
+      var(--spine-crease) 50%,
+      rgba(255, 255, 255, 0.06) 64%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 48px 0;
+  user-select: none;
+}
+
+.book-spine__stitch {
+  width: 2px;
+  height: 22px;
+  border-radius: 2px;
+  background: var(--rule-strong);
+  opacity: 0.75;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Single Wide Book Sheet (for Anthology List, Confusables, Drills, Library) */
+.book-sheet {
+  padding: 32px 42px 38px;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  animation: pageTurnSoft 0.22s ease-out;
+}
+
+/* Running Headers (면주) & Page Folios (쪽수) */
+.page-running-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 11px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--rule-line);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+.page-running-head__title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--ink-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.page-folio-bar {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Stepped Fore-Edge Index Tabs (책 옆면 견출지 색인 탭 — Desktop)
+   ========================================================================== */
+.fore-edge-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 26px;
+  margin-left: -3px;
+  z-index: 30;
+  flex-shrink: 0;
+}
+
+.fore-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 114px;
+  padding: 9px 11px 9px 13px;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule-strong);
+  border-left: 4px solid var(--tab-accent, var(--cinnabar));
+  border-radius: 0 9px 9px 0;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-sans);
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  text-align: left;
+  line-height: 1.25;
+  transition: transform 0.16s ease, background-color 0.16s ease, width 0.16s ease, color 0.16s ease;
+}
+
+.fore-tab:hover {
+  transform: translateX(3px);
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+}
+
+.fore-tab.is-active {
+  width: 122px;
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+  font-weight: 700;
+  border-color: var(--tab-accent, var(--cinnabar));
+  border-left-width: 5px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.fore-tab__code {
+  font-family: var(--font-serif-strong);
+  font-size: 0.7rem;
+  color: var(--tab-accent, var(--cinnabar));
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fore-tab__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mobile & Tablet Index Ribbon (Hidden on wide desktop) */
+.mobile-index-bar {
+  display: none;
+  overflow-x: auto;
+  gap: 6px;
+  padding: 7px 16px 9px;
+  border-top: 1px solid var(--rule-line);
+  scrollbar-width: none;
+}
+
+.mobile-index-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-tab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-elevated);
+  font-family: var(--font-sans);
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+.mobile-tab.is-active {
+  background: var(--cinnabar);
+  border-color: var(--cinnabar);
+  color: #fff;
+}
+
+/* Desk Colophon Footer */
+.desk-colophon {
+  margin-top: 16px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.77rem;
+  color: var(--ink-muted);
+}
+
+.desk-colophon p {
+  margin: 0;
+}
+
+.colophon-sep {
+  margin: 0 8px;
+}
+
+/* Loading Placeholder */
+.book-loading {
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--ink-muted);
+}
+
+.book-loading__seal {
+  margin: 0;
+  padding: 6px 14px;
+  border: 2px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-family: var(--font-hanja);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints — Tablet & Single-Page Mobile Reader
+   ========================================================================== */
+@media (max-width: 1120px) {
+  .fore-edge-tabs {
+    display: none;
+  }
+
+  .mobile-index-bar {
+    display: flex;
+  }
+
+  .desk-stage {
+    padding: 16px 14px 28px;
+  }
+}
+
+@media (max-width: 960px) {
+  .book-spread {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+  }
+
+  .book-spine {
+    flex-direction: row;
+    height: 18px;
+    padding: 0 28px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      var(--spine-crease) 50%,
+      rgba(0, 0, 0, 0.06) 100%
+    );
+  }
+
+  .book-spine__stitch {
+    width: 22px;
+    height: 2px;
+  }
+
+  .book-page--left,
+  .book-page--right {
+    background-image: none;
+    padding: 26px 24px 24px;
+  }
+
+  .book-sheet {
+    padding: 24px 22px 28px;
+    min-height: auto;
+  }
+
+  .book-interior {
+    min-height: auto;
+  }
+
+  .silk-ribbon {
+    left: auto;
+    right: 28px;
+    transform: none;
+  }
+
+  .silk-ribbon:hover {
+    transform: translateY(3px);
+  }
+}
+
+@media (max-width: 640px) {
+  .desk-bar__inner {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .desk-brand__sub {
+    display: none;
+  }
+
+  .desk-search {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .desk-search__kbd {
+    display: none;
+  }
+
+  .theme-btn__text {
+    display: none;
+  }
+
+  .theme-btn {
+    padding: 5px 7px;
+  }
+
+  .slip-mode-toggle__label {
+    font-size: 0.74rem;
+  }
+
+  .desk-stage {
+    padding: 10px 6px 24px;
+  }
+
+  .hardcover-frame {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .page-stack {
+    display: none;
+  }
+
+  .book-page--left,
+  .book-page--right,
+  .book-sheet {
+    padding: 20px 16px 22px;
+  }
+
+  .desk-colophon {
+    display: none;
+  }
+}
