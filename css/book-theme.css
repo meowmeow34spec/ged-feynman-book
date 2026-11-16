@@ -146,6 +146,7 @@
    Theme 3: Midnight Study Lamp (심야 스탠드 — 눈부심 없는 따뜻한 앰버 다크)
    ========================================================================== */
 [data-theme="midnight"] {
+  color-scheme: dark;
   --desk-bg: #12100e;
   --desk-bg-accent: #181512;
   --desk-bar-bg: rgba(27, 24, 21, 0.94);
@@ -184,7 +185,7 @@
   --cinnabar-hover: #eb8071;
   --cinnabar-soft: rgba(223, 109, 93, 0.14);
   --cinnabar-border: rgba(223, 109, 93, 0.4);
-  --stamp-red: #e05a48;
+  --stamp-red: #ee6855;
 
   --pine-green: #6fb39e;
   --pine-soft: rgba(111, 179, 158, 0.13);
@@ -710,10 +711,10 @@ kbd {
   box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.08);
 }
 
-/* Physical Red Silk Bookmark Ribbon */
+/* Physical Red Silk Bookmark Ribbon (protruding cleanly from top hardcover binding) */
 .silk-ribbon {
   position: absolute;
-  top: -4px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 45;
@@ -727,21 +728,22 @@ kbd {
 }
 
 .silk-ribbon:hover {
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%) translateY(2px);
 }
 
 .silk-ribbon__tail {
   display: block;
-  width: 24px;
-  height: 46px;
-  background: linear-gradient(180deg, #7d1b14 0%, #b82920 35%, #9e2219 100%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  width: 20px;
+  height: 24px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #7d1b14 0%, #b82920 38%, #9e2219 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.26), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
   transition: height 0.24s ease, background 0.24s ease;
 }
 
 .silk-ribbon.is-pinned .silk-ribbon__tail {
-  height: 58px;
+  height: 28px;
   background: linear-gradient(180deg, #941e16 0%, #d43227 42%, #ab231a 100%);
 }
 
@@ -1091,23 +1093,56 @@ kbd {
   }
 
   .silk-ribbon {
+    top: -10px;
     left: auto;
-    right: 28px;
+    right: 20px;
     transform: none;
   }
 
+  .silk-ribbon__tail {
+    width: 17px;
+    height: 20px;
+  }
+
+  .silk-ribbon.is-pinned .silk-ribbon__tail {
+    height: 24px;
+  }
+
   .silk-ribbon:hover {
-    transform: translateY(3px);
+    transform: translateY(2px);
   }
 }
 
 @media (max-width: 640px) {
   .desk-bar__inner {
-    padding: 8px 12px;
-    gap: 8px;
+    padding: 7px 10px;
+    gap: 6px;
   }
 
-  .desk-brand__sub {
+  .seal-emblem {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+
+  .desk-brand__title {
+    font-size: 0.88rem;
+  }
+
+  .desk-brand__sub,
+  .resume-pill {
+    display: none !important;
+  }
+
+  .desk-controls {
+    gap: 5px;
+  }
+
+  .slip-mode-toggle {
+    padding: 4px 9px;
+  }
+
+  .slip-mode-toggle__state {
     display: none;
   }
 
@@ -1115,6 +1150,10 @@ kbd {
     order: 3;
     flex: 1 1 100%;
     max-width: 100%;
+  }
+
+  .desk-search__box {
+    padding: 5px 10px;
   }
 
   .desk-search__kbd {
@@ -1126,19 +1165,25 @@ kbd {
   }
 
   .theme-btn {
-    padding: 5px 7px;
+    padding: 4px 6px;
+  }
+
+  .help-btn {
+    width: 27px;
+    height: 27px;
+    font-size: 0.78rem;
   }
 
   .slip-mode-toggle__label {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
   }
 
   .desk-stage {
-    padding: 10px 6px 24px;
+    padding: 14px 6px 24px;
   }
 
   .hardcover-frame {
-    padding: 6px;
+    padding: 8px 6px;
     border-radius: 10px;
   }
 
@@ -1149,10 +1194,101 @@ kbd {
   .book-page--left,
   .book-page--right,
   .book-sheet {
-    padding: 20px 16px 22px;
+    padding: 22px 16px 22px;
   }
 
   .desk-colophon {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Print Stylesheet (@media print) — 정갈한 종이 학습지 인쇄 최적화
+   ========================================================================== */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt;
+  }
+
+  .skip-link,
+  .desk-bar,
+  .fore-edge-tabs,
+  .mobile-index-bar,
+  .silk-ribbon,
+  .page-stack,
+  .book-spine,
+  .desk-colophon,
+  .word-index-strip,
+  .reader-filters,
+  .view-mode-group,
+  .mastery-selector,
+  .slip-reveil-bar,
+  .paper-slip-veil,
+  .bookmark-pin-btn,
+  .page-turn-btn,
+  .jump-back-btn,
+  .backup-panel,
+  .drawer-backdrop,
+  .hanja-drawer,
+  .modal-backdrop,
+  .shortcut-modal,
+  .ink-toast {
+    display: none !important;
+  }
+
+  .desk-stage {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .hardcover-frame,
+  .book-interior {
+    background: #ffffff !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .book-spread {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  .book-page--left,
+  .book-page--right,
+  .book-sheet {
+    background: #ffffff !important;
+    padding: 8pt 0 14pt !important;
+    min-height: auto !important;
+  }
+
+  .feynman-stage-wrap.is-veiled .feynman-steps,
+  .vs-card.is-blind .vs-side__core,
+  .vs-card.is-blind .vs-rule-bar__text {
+    filter: none !important;
+  }
+
+  .feynman-card,
+  .self-check-card,
+  .hanja-cell,
+  .one-liner-box,
+  .exam-example-box,
+  .vs-card,
+  .drill-card,
+  .anthology-card,
+  .derived-node {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
   }
 }

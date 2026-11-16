@@ -1318,12 +1318,14 @@
           wordChipsHtml +
         '</nav>';
 
-      /* Scroll active word chip gently into horizontal view inside strip */
-      var activeChip = container.querySelector('.word-chip.is-current');
-      if (activeChip && typeof activeChip.scrollIntoView === 'function') {
-        try {
-          activeChip.scrollIntoView({ block: 'nearest', inline: 'center' });
-        } catch (e) {}
+      /* Horizontally center active word chip inside .word-index-strip without scrolling window */
+      var wordStrip = container.querySelector('.word-index-strip');
+      var activeChip = wordStrip ? wordStrip.querySelector('.word-chip.is-current') : null;
+      if (wordStrip && activeChip) {
+        wordStrip.scrollLeft = Math.max(
+          0,
+          activeChip.offsetLeft - (wordStrip.clientWidth - activeChip.offsetWidth) / 2
+        );
       }
 
       /* Bind marginalia input directly for smooth Korean IME composition */
